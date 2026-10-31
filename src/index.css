@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-indigo-50: var(--color-indigo-50, oklch(96.2% 0.018 272.314));
+  --color-indigo-100: var(--color-indigo-100, oklch(93% 0.034 272.788));
+  --color-indigo-200: var(--color-indigo-200, oklch(87% 0.065 274.039));
+  --color-indigo-300: var(--color-indigo-300, oklch(78.5% 0.115 274.713));
+  --color-indigo-400: var(--color-indigo-400, oklch(67.3% 0.182 276.935));
+  --color-indigo-500: var(--color-indigo-500, oklch(58.5% 0.233 277.117));
+  --color-indigo-600: var(--color-indigo-600, oklch(51.1% 0.262 276.966));
+  --color-indigo-700: var(--color-indigo-700, oklch(45.7% 0.24 277.023));
+  --color-indigo-800: var(--color-indigo-800, oklch(39.8% 0.195 277.366));
+  --color-indigo-900: var(--color-indigo-900, oklch(35.9% 0.144 278.697));
+  --color-indigo-950: var(--color-indigo-950, oklch(25.7% 0.09 281.288));
+}
+
+@layer base {
+  :root {
+    --bg-app: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-subtle: #f1f5f9;
+    --border-subtle: #e2e8f0;
+    --border-medium: #cbd5e1;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --accent: #4f46e5; /* default indigo-600 */
+    --accent-hover: #4338ca;
+    --accent-subtle: #eef2ff;
+    --accent-border: #c7d2fe;
+    --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+    --card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  }
+
+  .dark {
+    --bg-app: #0f172a;
+    --bg-surface: #1e293b;
+    --bg-subtle: #172033;
+    --border-subtle: #334155;
+    --border-medium: #475569;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+    --accent: #6366f1; /* default indigo-500 */
+    --accent-hover: #818cf8;
+    --accent-subtle: #1e1b4b;
+    --accent-border: #3730a3;
+    --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3);
+    --card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+  }
+
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    border: none;
+    text-align: left;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+/* Refined transitions for smooth theme and accent toggling */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
